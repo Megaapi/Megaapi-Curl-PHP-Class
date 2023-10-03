@@ -15,8 +15,9 @@ class Api{
      * @param [string] $instanceKey
      * @param [string] $token
      */
-    public function __construct($instanceKey, $token){
+    public function __construct($host, $instanceKey, $token){
 
+        $this->host = $host
         $this->instance = $instanceKey;
         $this->token = $token;
 
@@ -31,7 +32,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/instance/qrcode/'.$this->instance,
+        CURLOPT_URL => 'https://'.$this->host.'/rest/instance/qrcode/'.$this->instance,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -62,7 +63,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/instance/qrcode_base64/'.$this->instance,
+        CURLOPT_URL => 'https://'.$this->host.'/rest/instance/qrcode_base64/'.$this->instance,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -92,7 +93,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/instance/'.$this->instance.'/logout',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/instance/'.$this->instance.'/logout',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -122,7 +123,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/instance/'.$this->instance,
+        CURLOPT_URL => 'https://'.$this->host.'/rest/instance/'.$this->instance,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -152,7 +153,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/webhook/'.$this->instance, 
+        CURLOPT_URL => 'https://'.$this->host.'/rest/webhook/'.$this->instance, 
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -184,7 +185,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/webhook/'.$this->instance.'/configWebhook',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/webhook/'.$this->instance.'/configWebhook',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -232,7 +233,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/sendMessage/'.$this->instance.'/text',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/sendMessage/'.$this->instance.'/text',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -266,7 +267,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/sendMessage/'.$this->instance.'/textToMany',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/sendMessage/'.$this->instance.'/textToMany',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -323,7 +324,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/sendMessage/'.$this->instance.'/mediaUrl',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/sendMessage/'.$this->instance.'/mediaUrl',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -360,7 +361,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/sendMessage/'.$this->instance.'/mediaUrlToMany',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/sendMessage/'.$this->instance.'/mediaUrlToMany',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -407,7 +408,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/instance/downloadMediaMessage/'.$this->instance,
+        CURLOPT_URL => 'https://'.$this->host.'/rest/instance/downloadMediaMessage/'.$this->instance,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -451,7 +452,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/sendMessage/'.$this->instance.'/textMentioned',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/sendMessage/'.$this->instance.'/textMentioned',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -497,7 +498,7 @@ class Api{
     public function location($contact, $address, $caption, $latitude, $longitude){
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/sendMessage/'.$this->instance.'/location',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/sendMessage/'.$this->instance.'/location',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -546,7 +547,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/sendMessage/'.$this->instance.'/templateMessage',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/sendMessage/'.$this->instance.'/templateMessage',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -610,7 +611,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/sendMessage/'.$this->instance.'/listMessage',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/sendMessage/'.$this->instance.'/listMessage',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -669,7 +670,7 @@ class Api{
         
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/sendMessage/'.$this->instance.'/contactMessage',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/sendMessage/'.$this->instance.'/contactMessage',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -714,7 +715,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/sendMessage/'.$this->instance.'/forwardMessage',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/sendMessage/'.$this->instance.'/forwardMessage',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -796,7 +797,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/chat/'.$this->instance.'/presenceUpdateChat',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/chat/'.$this->instance.'/presenceUpdateChat',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -833,7 +834,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/chat/'.$this->instance.'/pinChat',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/chat/'.$this->instance.'/pinChat',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -870,7 +871,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/chat/'.$this->instance.'/blockChat',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/chat/'.$this->instance.'/blockChat',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -905,7 +906,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/chat/'.$this->instance.'/readMessage',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/chat/'.$this->instance.'/readMessage',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -944,7 +945,7 @@ class Api{
         $curl = curl_init();
         
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/chat/'.$this->instance.'/deleteMessage',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/chat/'.$this->instance.'/deleteMessage',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -981,7 +982,7 @@ class Api{
       
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/list/'.$this->instance,
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/list/'.$this->instance,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1012,7 +1013,7 @@ class Api{
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/adminGroups',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/adminGroups',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1043,7 +1044,7 @@ class Api{
        
         $curl = curl_init();
         curl_setopt_array($curl, array(
-          CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/adminGroupsWithParticipants',
+          CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/adminGroupsWithParticipants',
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => '',
           CURLOPT_MAXREDIRS => 10,
@@ -1074,7 +1075,7 @@ class Api{
        
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/group/?jid='.$jid,
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/group/?jid='.$jid,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1141,7 +1142,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/create',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/create',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1183,7 +1184,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/addParticipants',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/addParticipants',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1224,7 +1225,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/removeParticipants',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/removeParticipants',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1265,7 +1266,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/demoteParticipants',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/demoteParticipants',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1308,7 +1309,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/promoteParticipants',
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/promoteParticipants',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1349,7 +1350,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/setWhoCanSendMessage?jid='.$jdi.'&allowOnlyAdmins='.$status,
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/setWhoCanSendMessage?jid='.$jdi.'&allowOnlyAdmins='.$status,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1382,7 +1383,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/setWhoCanChangeSettings?jid='.$jdi.'&allowOnlyAdmins='.$status,
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/setWhoCanChangeSettings?jid='.$jdi.'&allowOnlyAdmins='.$status,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1416,7 +1417,7 @@ class Api{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api2.megaapi.com.br/rest/group/'.$this->instance.'/leaveGroup?jid='.$jdi,
+        CURLOPT_URL => 'https://'.$this->host.'/rest/group/'.$this->instance.'/leaveGroup?jid='.$jdi,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
