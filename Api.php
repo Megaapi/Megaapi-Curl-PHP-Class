@@ -5,6 +5,7 @@
  */
 class Api{
 
+    private $host;
     private $instanceKey;
     private $token;
 
