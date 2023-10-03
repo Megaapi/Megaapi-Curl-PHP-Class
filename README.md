@@ -10,7 +10,7 @@ Esse projeto possui exemplos de como se integrar com whatsapp utilizando a Megaa
 Este projeto foi desenvolvido para ajudar desenvolvedores que não sabem por onde começar na utilização da api whatsapp Megaapi.
 São recursos básicos, é de responsabilidade do desenvolver entender o código fonte e melhorar conforme sua necessidade.
 
-Neste projeto foi utilizada a api Megaapi: https://mega-api-whats.com.br/
+Neste projeto foi utilizada a api Megaapi: https://mega-api.app.br
 
 # Segue nas redes socias:
 
