@@ -7,7 +7,7 @@
  */
 
 require_once 'Api.php';
-$api = new Api("instance_key", "token");
+$api = new Api("host da sua instancia", "instance_key", "token");
 
 
 /**Gerando o qrCode */
