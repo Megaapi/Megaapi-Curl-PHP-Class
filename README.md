@@ -15,6 +15,6 @@ Neste projeto foi utilizada a api Megaapi: https://mega-api-whats.com.br/
 # Segue nas redes socias:
 
 - Instagram: @megaapi
-- Youtube: https://www.youtube.com/channel/UCQDEJODijCsdFSgqz676F_g
+- https://www.youtube.com/@megaapi
 
 Deixe nos comentários sua opinião sobre o código, faça melhorias e compartilhe com nossa comunidade Megaapi - A melhor api whatsapp do Brasil.
